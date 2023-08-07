@@ -318,9 +318,12 @@ const View = function ($container) {
             }
 
         },
-        "contextmenu .ovenplayer": function (event, $current, template) {
+
+        // STREAMWELL CUSTOM
+        "contextmenu .ovenplayer" : function(event, $current, template){
             event.stopPropagation();
-            if (!LA$(event.currentTarget).find("object")) {
+            return;
+            if(!LA$(event.currentTarget).find("object")){
                 event.preventDefault();
                 createContextPanel(event.pageX, event.pageY);
                 return false;
