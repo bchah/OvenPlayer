@@ -23,10 +23,10 @@ const player = OvenPlayer.create(container, options);
 
 {% tabs %}
 {% tab title="Request" %}
-| Params    | Type   | Memo                                        |
-| --------- | ------ | ------------------------------------------- |
-| container | String | DOM Element                                 |
-| options   | Object | Please see the _**Options**_ section below. |
+| Params    | Type                  | Memo                                        |
+| --------- | ------                | ------------------------------------------- |
+| container | String \| HTMLElement | DOM Element                                 |
+| options   | Object                | Please see the _**Options**_ section below. |
 {% endtab %}
 {% endtabs %}
 
@@ -124,7 +124,7 @@ var player = OvenPlayer.create("player", {
         image: '/path/to/watermark/image.png',
         position: 'top-left',
         y: '20px',
-        x: '20px'
+        x: '20px',
         width: '40px',
         height: '30px',
         opacity: 0.7
