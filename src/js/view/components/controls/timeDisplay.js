@@ -19,6 +19,8 @@ const TimeDisplay = function ($container, api, data) {
   let hlsLive = false;
   let nativeHlsLive = false;
 
+  let currVodPosition = 0;
+
   function convertHumanizeTime(time) {
     return naturalHms(time);
   }
@@ -29,6 +31,7 @@ const TimeDisplay = function ($container, api, data) {
   }
 
   const onRendered = function ($current, template) {
+    currVodPosition = 0;
     let isTimecode = api.isTimecodeMode();
     $position = $current.find(".op-time-current");
     $duration = $current.find(".op-time-duration");
@@ -48,19 +51,25 @@ const TimeDisplay = function ($container, api, data) {
       if (isTimecode) {
         $duration.text(convertHumanizeTime(data.duration));
       } else {
+        $position.text(0);
         $duration.text(Math.round(data.duration * api.getFramerate()) + " (" + api.getFramerate() + "fps)");
       }
 
       api.on(CONTENT_TIME_MODE_CHANGED, function (isTimecodeMode) {
         isTimecode = isTimecodeMode;
         if (isTimecode) {
+          $position.text(convertHumanizeTime(currVodPosition));
           $duration.text(convertHumanizeTime(data.duration));
         } else {
+          $position.text(Math.round(currVodPosition * api.getFramerate()));
           $duration.text(Math.round(data.duration * api.getFramerate()) + " (" + api.getFramerate() + "fps)");
         }
       }, template);
 
       api.on(CONTENT_TIME, function (data) {
+
+        currVodPosition = data.position;
+
         if (isTimecode) {
           $position.text(convertHumanizeTime(data.position));
         } else {
@@ -71,7 +80,7 @@ const TimeDisplay = function ($container, api, data) {
       if (hlsLive && !nativeHlsLive) {
         api.on(CONTENT_TIME, function (data) {
           if (!api.getConfig().legacyUI) {
-            if (data.duration - data.position > 3) {
+            if (api.getMseInstance().liveSyncPosition - data.position > api.getMseInstance().targetLatency) {
               $liveBadge.addClass('op-live-badge-delayed');
             } else {
               $liveBadge.removeClass('op-live-badge-delayed');
@@ -105,29 +114,11 @@ const TimeDisplay = function ($container, api, data) {
 
       event.preventDefault();
 
-      api.seek(Number.MAX_SAFE_INTEGER);
-
-      //When playback get back to the latest, turn the latency control back on.
-      const config = api.getConfig();
-      if (config.hlsConfig) {
-
-        const hlsConfig = config.hlsConfig;
-        if (typeof hlsConfig.liveSyncDuration === 'number') {
-          api.getMseInstance().config.liveSyncDuration
-            = hlsConfig.liveSyncDuration;
-        }
-
-        if (typeof hlsConfig.liveMaxLatencyDuration === 'number') {
-          api.getMseInstance().config.liveMaxLatencyDuration
-            = hlsConfig.liveMaxLatencyDuration;
-        }
-
-        if (typeof hlsConfig.maxLiveSyncPlaybackRate === 'number') {
-          api.getMseInstance().config.maxLiveSyncPlaybackRate =
-            hlsConfig.maxLiveSyncPlaybackRate;
-        }
+      if (hlsLive && !nativeHlsLive) {
+        const syncPosition = api.getMseInstance().liveSyncPosition;
+        api.seek(syncPosition);
       }
-    },
+    }
   };
 
   return OvenTemplate($container, "TimeDisplay", api.getConfig(), data, events, onRendered, onDestroyed);
