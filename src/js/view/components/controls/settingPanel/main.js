@@ -11,27 +11,31 @@ import ZoomPanel from "view/components/controls/settingPanel/zoomPanel";
 import SourcePanel from "view/components/controls/settingPanel/sourcePanel";
 import QualityPanel from "view/components/controls/settingPanel/qualityPanel";
 import AudioTrackPanel from "view/components/controls/settingPanel/audioTrackPanel";
+import SubtitleTrackPanel from 'view/components/controls/settingPanel/subtitleTrackPanel';
 import CaptionPanel from "view/components/controls/settingPanel/captionPanel";
 import TimeDisplayPanel from "view/components/controls/settingPanel/timeDisplayPanel";
 import {
-    CONTENT_LEVEL_CHANGED, PLAYER_ZOOM_CAHNGED
+    CONTENT_LEVEL_CHANGED,
+    PLAYER_ZOOM_CHANGED,
+    AUDIO_TRACK_CHANGED,
+    SUBTITLE_TRACK_CHANGED
 } from "api/constants";
-import { AUDIO_TRACK_CHANGED } from "../../../../api/constants";
 
 let PANEL_TITLE = {
     "speed": "Speed",
-    "zoom": "Zoom",
     "speedUnit": "x",
     "source": "Source",
     "quality": "Quality",
     "audioTrack": "Audio",
     "caption": "Caption",
-    "display": "Display"
+    "display": "Display",
+    "zoom": "Zoom",
+    "subtitleTrack": "Subtitle"
 };
 
 const Panels = function ($container, api, data) {
 
-    const $root = LA$(api.getContainerElement());
+    let $root = LA$(api.getContainerElement());
     let panelManager = PanelManager();
 
     let playerConfig = api.getConfig();
@@ -136,10 +140,30 @@ const Panels = function ($container, api, data) {
                 panel.body.push(body);
             }
 
+        } else if (panelType === "subtitleTrack") {
+            let subtitleTracks = api.getSubtitleTracks();
+
+            panel.body.push({
+                title: "Off",
+                isCheck: api.getCurrentSubtitleTrack() === -1,
+                value: -1,
+                panelType: panelType
+            });
+
+            for (let i = 0; i < subtitleTracks.length; i++) {
+                let body = {
+                    title: subtitleTracks[i].label,
+                    isCheck: subtitleTracks[i].index === api.getCurrentSubtitleTrack(),
+                    value: subtitleTracks[i].index,
+                    panelType: panelType
+                };
+                panel.body.push(body);
+            }
+
         } else if (panelType === "caption") {
             let captions = api.getCaptionList();
             panel.body.push({
-                title: "OFF",
+                title: "Off",
                 isCheck: api.getCurrentCaption() === -1,
                 value: -1,
                 panelType: panelType
@@ -187,6 +211,7 @@ const Panels = function ($container, api, data) {
         }
     };
     const onRendered = function ($current, template) {
+
         setPanelMaxHeight();
 
         api.on(CONTENT_LEVEL_CHANGED, function (data) {
@@ -217,8 +242,24 @@ const Panels = function ($container, api, data) {
             });
         }, template);
 
+        api.on(SUBTITLE_TRACK_CHANGED, function (data) {
+            _.forEach($root.find("#" + template.data.id).find(".op-setting-item").get() || [], function (panel) {
 
-        api.on(PLAYER_ZOOM_CAHNGED, function (data) {
+                let $panel = LA$(panel);
+
+                if ($panel.attr("op-panel-type") === "subtitleTrack") {
+                    if (data.currentSubtitleTrack === -1) {
+                        $panel.find(".op-setting-item-value").text("Off");
+                    } else {
+                        $panel.find(".op-setting-item-value").text(api.getSubtitleTracks()[data.currentSubtitleTrack].label);
+                    }
+
+                }
+            });
+        }, template);
+
+
+        api.on(PLAYER_ZOOM_CHANGED, function (data) {
             _.forEach($root.find("#" + template.data.id).find(".op-setting-item").get() || [], function (panel) {
 
                 let $panel = LA$(panel);
@@ -232,7 +273,8 @@ const Panels = function ($container, api, data) {
     const onDestroyed = function (template) {
         api.off(CONTENT_LEVEL_CHANGED, null, template);
         api.off(AUDIO_TRACK_CHANGED, null, template);
-        api.off(PLAYER_ZOOM_CAHNGED, null, template);
+        api.off(SUBTITLE_TRACK_CHANGED, null, template);
+        api.off(PLAYER_ZOOM_CHANGED, null, template);
     };
     const events = {
         "click .op-setting-item": function (event, $current, template) {
@@ -253,6 +295,8 @@ const Panels = function ($container, api, data) {
                 panel = QualityPanel($container, api, extractSubPanelData(api, panelType));
             } else if (panelType === "audioTrack") {
                 panel = AudioTrackPanel($container, api, extractSubPanelData(api, panelType));
+            } else if (panelType === "subtitleTrack") {
+                panel = SubtitleTrackPanel($container, api, extractSubPanelData(api, panelType));
             } else if (panelType === "caption") {
                 panel = CaptionPanel($container, api, extractSubPanelData(api, panelType));
             } else if (panelType === "display") {

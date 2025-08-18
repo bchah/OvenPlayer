@@ -16,7 +16,8 @@ let PANEL_TITLE = {
     "audioTrack": "Audio",
     "caption": "Caption",
     "display": "Display",
-    "zoom": "Zoom"
+    "zoom": "Zoom",
+    "subtitleTrack": "Subtitle"
 };
 const SettingButton = function ($container, api) {
     let panelManager = PanelManager();
@@ -53,6 +54,15 @@ const SettingButton = function ($container, api) {
         let framerate = api.getFramerate();
 
         let allowZoom = playerConfig.showZoomSettings;
+
+        let subtitleTracks = api.getSubtitleTracks();
+        let currentSubtitleTrack = null;
+
+        if (subtitleTracks && subtitleTracks.length) {
+            if (api.getCurrentSubtitleTrack() > -1) {
+                currentSubtitleTrack = subtitleTracks[api.getCurrentSubtitleTrack()];
+            }
+        }
 
         if (currentSource) {
             let body = {
@@ -103,12 +113,24 @@ const SettingButton = function ($container, api) {
             panel.body.push(body);
         }
 
+        if (subtitleTracks && subtitleTracks.length > 0) {
+            let body = {
+                title: PANEL_TITLE.subtitleTrack,
+                value: currentSubtitleTrack ? currentSubtitleTrack.label : "Off",
+                description: currentSubtitleTrack ? currentSubtitleTrack.label : "Off",
+                panelType: "subtitleTrack",
+                hasNext: true
+            };
+
+            panel.body.push(body);
+        }
+
         if (captions && captions.length > 0) {
 
             let body = {
                 title: PANEL_TITLE.caption,
-                value: captions[currentCaption] ? captions[currentCaption].label : "OFF",
-                description: captions[currentCaption] ? captions[currentCaption].label : "OFF",
+                value: captions[currentCaption] ? captions[currentCaption].label : "Off",
+                description: captions[currentCaption] ? captions[currentCaption].label : "Off",
                 panelType: "caption",
                 hasNext: true
             };
