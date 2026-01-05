@@ -271,8 +271,6 @@ const HlsProvider = function (element, playerConfig, adTagUrl) {
         that.setAutoQuality = (isAuto) => {
             if (isAuto) {
                 hls.currentLevel = -1;
-            } else {
-                hls.currentLevel = hls.currentLevel;
             }
         };
 
