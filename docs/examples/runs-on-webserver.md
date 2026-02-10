@@ -32,7 +32,7 @@ cd /usr/share/nginx/html
 ### Download OvenPlayer
 
 ```
-git clone https://github.com/AirenSoft/OvenPlayer.git
+git clone https://github.com/OvenMediaLabs/OvenPlayer.git
 ```
 
 ### Access from your browser

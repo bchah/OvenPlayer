@@ -341,7 +341,7 @@ const WebRTCLoader = function (provider,
                     if (checkOpusIsStereo(sdp.sdp, opusFormatNumber)) {
 
                         //If offer has opus and if it is stereo, munge local sdp to force stereo=1
-                        //Thanks to community https://github.com/AirenSoft/OvenMediaEngine/issues/203
+                        //Thanks to community https://github.com/OvenMediaLabs/OvenMediaEngine/issues/203
                         desc.sdp = mungeSdpForceStereoOpus(desc.sdp, opusFormatNumber);
                     }
                 }

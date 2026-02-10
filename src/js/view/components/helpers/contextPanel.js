@@ -30,7 +30,7 @@ const ContextPanel = function($container, api, position){
             );
             const ident = contextItem?.attr('id');
             if (ident == 'context-player-about') {
-                window.open('https://github.com/AirenSoft/OvenPlayer', '_blank');
+                window.open('https://github.com/OvenMediaLabs/OvenPlayer', '_blank');
                 return;
             }
             api.getProvider().trigger(CONTEXT_ITEM_CLICKED, ident);
