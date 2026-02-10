@@ -3,21 +3,45 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no"
+  >
+  <meta
+    http-equiv="content-type"
+    content="text/html; charset=utf-8"
+  />
 
   <title>OvenPlayer</title>
-  <link rel="icon" href="./assets/images/00_OvenPlayer_Favicon.svg">
+  <link
+    rel="icon"
+    href="./assets/images/00_OvenPlayer_Favicon.svg"
+  >
 
   <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    rel="stylesheet"
+  />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+  />
   <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.css" rel="stylesheet" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.css"
+    rel="stylesheet"
+  />
   <!-- highlightjs -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/styles/github.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/styles/github.css"
+  >
   <style>
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
@@ -82,7 +106,10 @@
   </style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40491361-8"></script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-40491361-8"
+  ></script>
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -115,35 +142,62 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 
   <!-- hls.js -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
 
   <!-- OvenPlayer -->
-  <script src="https://cdn.jsdelivr.net/npm/ovenplayer/dist/ovenplayer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ovenplayer@0.10.46/dist/ovenplayer.min.js?20270730"></script>
+  <!-- <script src="./ovenplayer/ovenplayer.js"></script> -->
 </head>
 
 <body>
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container-lg">
-        <a class="navbar-brand" href="/">OVENPLAYER</a>
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
-          aria-controls="navbarNav">
+        <a
+          class="navbar-brand"
+          href="/"
+        >OVENPLAYER</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarNav"
+          aria-controls="navbarNav"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div
+          class="collapse navbar-collapse"
+          id="navbarNav"
+        >
 
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="./demo.html">Test Player</a>
+              <a
+                class="nav-link active"
+                href="./demo.html"
+              >Test Player</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://space.ovenplayer.com" target="_blank">Demo</a>
+              <a
+                class="nav-link"
+                href="https://space.ovenplayer.com"
+                target="_blank"
+              >Demo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/AirenSoft/OvenPlayer" target="_blank">GitHub</a>
+              <a
+                class="nav-link"
+                href="https://github.com/OvenMediaLabs/OvenPlayer"
+                target="_blank"
+              >GitHub</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://airensoft.gitbook.io/ovenplayer/" target="_blank">Docs</a>
+              <a
+                class="nav-link"
+                href="https://docs.ovenplayer.com/"
+                target="_blank"
+              >Docs</a>
             </li>
           </ul>
         </div>
@@ -152,10 +206,18 @@
     <div class="container-lg mt-4">
       <ul class="nav nav-pills mb-3">
         <li class="nav-item">
-          <a class="nav-link active" href="demo.html" target="_blank">Player</a>
+          <a
+            class="nav-link active"
+            href="demo.html"
+            target="_blank"
+          >Player</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link position-relative" href="demo_input.html" target="_blank">
+          <a
+            class="nav-link position-relative"
+            href="demo_input.html"
+            target="_blank"
+          >
             <span>
               WebRTC Input
             </span>
@@ -166,11 +228,23 @@
         <div class="col-12">
           <div class="input-group">
             <div class="form-outline flex-grow-1">
-              <input type="text" id="playbackUrl" class="form-control bg-white" v-model="source"
-                @keyup.enter="addSource" />
-              <label class="form-label" for="playbackUrl">Playback URL</label>
+              <input
+                type="text"
+                id="playbackUrl"
+                class="form-control bg-white"
+                v-model="source"
+                @keyup.enter="addSource"
+              />
+              <label
+                class="form-label"
+                for="playbackUrl"
+              >Playback URL</label>
             </div>
-            <button class="btn btn-primary px-2 px-md-4" type="button" @click="addSource">
+            <button
+              class="btn btn-primary px-2 px-md-4"
+              type="button"
+              @click="addSource"
+            >
               ADD SOURCE
             </button>
           </div>
@@ -178,8 +252,11 @@
         <div class="col-12 col-md-6">
           <div class="player-area rounded shadow overflow-hidden mb-2">
             <div class="dummyPlayer d-flex justify-content-center text-center">
-              <span v-if="playerMessage" class="text-white position-absolute"
-                style="left: 1rem; right: 1rem; bottom: 28.125%">
+              <span
+                v-if="playerMessage"
+                class="text-white position-absolute"
+                style="left: 1rem; right: 1rem; bottom: 28.125%"
+              >
                 <i class="fas fa-info-circle me-1 text-info"></i>
                 {{playerMessage}}
               </span>
@@ -190,8 +267,15 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary w-100" type="button" @click="reloadPlayer">
-            <i class="fas me-2" :class="loadButtonIcon"></i>
+          <button
+            class="btn btn-primary w-100"
+            type="button"
+            @click="reloadPlayer"
+          >
+            <i
+              class="fas me-2"
+              :class="loadButtonIcon"
+            ></i>
             {{loadButtonMsg}}
           </button>
         </div>
@@ -200,11 +284,19 @@
           <ul class="list-group">
             <li class="list-group-item bg-light d-flex justify-content-between align-items-center">
               <h5 class="mb-0 fs-6">Sources</h5>
-              <small v-if="playerVersion">OvenPlayer
-                <span class="badge badge-info ms-1 align-middle">{{playerVersion}}</span>
-              </small>
+              <div class="hstack gap-2">
+                <small v-if="playerVersion">OvenPlayer
+                  <span class="badge badge-info ms-1 align-middle">{{playerVersion}}</span>
+                </small>
+                <small v-if="hlsVersion">hls.js
+                  <span class="badge badge-info ms-1 align-middle">{{hlsVersion}}</span>
+                </small>
+              </div>
             </li>
-            <div class="list-group-item" v-if="playerOption.sources.length === 0">
+            <div
+              class="list-group-item"
+              v-if="playerOption.sources.length === 0"
+            >
               <p class="lead">Test streams with OvenPlayer</p>
 
               <ul>
@@ -220,27 +312,37 @@
                 documents.</p>
               <ul class="mb-2">
                 <li>
-                  WebRTC <a href="https://airensoft.gitbook.io/ovenmediaengine/streaming/webrtc-publishing#playback"
-                    class="ms-1" target="_blank">
+                  WebRTC <a
+                    href="https://docs.ovenmediaengine.com/streaming/webrtc-publishing#playback"
+                    class="ms-1"
+                    target="_blank"
+                  >
                     <i class="fas fa-external-link-alt"></i>
                   </a>
                 </li>
                 <li>
-                  Low-Latency HLS <a href="https://airensoft.gitbook.io/ovenmediaengine/streaming/low-latency-hls"
-                    class="ms-1" target="_blank">
+                  Low-Latency HLS <a
+                    href="https://docs.ovenmediaengine.com/streaming/low-latency-hls"
+                    class="ms-1"
+                    target="_blank"
+                  >
                     <i class="fas fa-external-link-alt"></i>
                   </a>
                 </li>
               </ul>
             </div>
-            <source-item v-for="(source, index) in playerOption.sources" :source="source" :index="index"
-              @remove-source="removeSource(index)">
+            <source-item
+              v-for="(source, index) in playerOption.sources"
+              :source="source"
+              :index="index"
+              @remove-source="removeSource(index)"
+            >
             </source-item>
           </ul>
         </div>
       </div>
 
-      <div class="row row-cols-1 g-3">
+      <div class="row row-cols-1 g-3 mb-3">
         <div class="col">
           <ul class="list-group">
             <li class="list-group-item bg-light">
@@ -254,46 +356,94 @@
                   <h6>General Options</h6>
                   <fieldset>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="autoStart"
-                        v-model="playerOption.autoStart" @change="changeOptions" />
-                      <label class="form-check-label" for="autoStart">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="autoStart"
+                        v-model="playerOption.autoStart"
+                        @change="changeOptions"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="autoStart"
+                      >
                         autoStart
                       </label>
-                      <a href="https://airensoft.gitbook.io/ovenplayer/initialization#autostart" class="ms-1"
-                        target="_blank">
+                      <a
+                        href="https://docs.ovenplayer.com/initialization#autostart"
+                        class="ms-1"
+                        target="_blank"
+                      >
                         <i class="fas fa-external-link-alt"></i>
                       </a>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="autoFallback"
-                        v-model="playerOption.autoFallback" @change="changeOptions" />
-                      <label class="form-check-label" for="autoFallback">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="autoFallback"
+                        v-model="playerOption.autoFallback"
+                        @change="changeOptions"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="autoFallback"
+                      >
                         autoFallback
                       </label>
-                      <a href="https://airensoft.gitbook.io/ovenplayer/initialization#autofallback" class="ms-1"
-                        target="_blank">
+                      <a
+                        href="https://docs.ovenplayer.com/initialization#autofallback"
+                        class="ms-1"
+                        target="_blank"
+                      >
                         <i class="fas fa-external-link-alt"></i>
                       </a>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="mute" v-model="playerOption.mute"
-                        @change="changeOptions" />
-                      <label class="form-check-label" for="mute">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="mute"
+                        v-model="playerOption.mute"
+                        @change="changeOptions"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="mute"
+                      >
                         mute
                       </label>
-                      <a href="https://airensoft.gitbook.io/ovenplayer/initialization#mute" class="ms-1"
-                        target="_blank">
+                      <a
+                        href="https://docs.ovenplayer.com/initialization#mute"
+                        class="ms-1"
+                        target="_blank"
+                      >
                         <i class="fas fa-external-link-alt"></i>
                       </a>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="doubleTapToSeek"
-                        v-model="playerOption.doubleTapToSeek" @change="changeOptions" />
-                      <label class="form-check-label" for="doubleTapToSeek">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="doubleTapToSeek"
+                        v-model="playerOption.doubleTapToSeek"
+                        @change="changeOptions"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="doubleTapToSeek"
+                      >
                         doubleTapToSeek
                       </label>
-                      <a href="https://airensoft.gitbook.io/ovenplayer/initialization#doubletaptoseek" class="ms-1"
-                        target="_blank">
+                      <a
+                        href="https://docs.ovenplayer.com/initialization#doubletaptoseek"
+                        class="ms-1"
+                        target="_blank"
+                      >
                         <i class="fas fa-external-link-alt"></i>
                       </a>
                     </div>
@@ -304,44 +454,90 @@
                   <h6>WebRTC Options</h6>
                   <fieldset class="mb-3">
                     <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" value="" id="reloadOnConnectionTimeoutCheck"
-                        v-model="reloadOnConnectionTimeoutCheck" />
-                      <label class="form-check-label" for="reloadOnConnectionTimeoutCheck">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="reloadOnConnectionTimeoutCheck"
+                        v-model="reloadOnConnectionTimeoutCheck"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="reloadOnConnectionTimeoutCheck"
+                      >
                         Reload On Connection Timeout
                       </label>
-                      <a href="https://airensoft.gitbook.io/ovenplayer/initialization#webrtcconfig.timeoutmaxretry-and-webrtcconfig.connectiontimeout"
-                        class="ms-1" target="_blank">
+                      <a
+                        href="https://docs.ovenplayer.com/initialization#webrtcconfig.timeoutmaxretry-and-webrtcconfig.connectiontimeout"
+                        class="ms-1"
+                        target="_blank"
+                      >
                         <i class="fas fa-external-link-alt"></i>
                       </a>
                     </div>
                     <div class="form-outline ms-4 mb-3">
-                      <input :disabled="!reloadOnConnectionTimeoutCheck" type="number" id="webrtcLoadingTimeout"
-                        class="form-control active" v-model="webrtcLoadingTimeout">
-                      <label class="form-label" for="webrtcLoadingTimeout">Timeout
+                      <input
+                        :disabled="!reloadOnConnectionTimeoutCheck"
+                        type="number"
+                        id="webrtcLoadingTimeout"
+                        class="form-control active"
+                        v-model="webrtcLoadingTimeout"
+                      >
+                      <label
+                        class="form-label"
+                        for="webrtcLoadingTimeout"
+                      >Timeout
                         (Millisecond)</label>
                     </div>
                     <div class="form-outline ms-4">
-                      <input :disabled="!reloadOnConnectionTimeoutCheck" type="number" id="webrtcLoadingRetryCount"
-                        class="form-control active" v-model="webrtcLoadingRetryCount">
-                      <label class="form-label" for="webrtcLoadingRetryCount">Retry count</label>
+                      <input
+                        :disabled="!reloadOnConnectionTimeoutCheck"
+                        type="number"
+                        id="webrtcLoadingRetryCount"
+                        class="form-control active"
+                        v-model="webrtcLoadingRetryCount"
+                      >
+                      <label
+                        class="form-label"
+                        for="webrtcLoadingRetryCount"
+                      >Retry count</label>
                     </div>
                   </fieldset>
                   <fieldset>
                     <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" value="" id="playoutDelayHintCheck"
-                        v-model="playoutDelayHintCheck" />
-                      <label class="form-check-label" for="playoutDelayHintCheck">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="playoutDelayHintCheck"
+                        v-model="playoutDelayHintCheck"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="playoutDelayHintCheck"
+                      >
                         Enable Playout Delay Hint
                       </label>
-                      <a href="https://airensoft.gitbook.io/ovenplayer/initialization#webrtcconfig.playoutdelayhint"
-                        class="ms-1" target="_blank">
+                      <a
+                        href="https://docs.ovenplayer.com/initialization#webrtcconfig.playoutdelayhint"
+                        class="ms-1"
+                        target="_blank"
+                      >
                         <i class="fas fa-external-link-alt"></i>
                       </a>
                     </div>
                     <div class="form-outline ms-4">
-                      <input :disabled="!playoutDelayHintCheck" type="number" id="playOutDelayHintInput"
-                        class="form-control active" v-model="playOutDelayHintInput">
-                      <label class="form-label" for="playOutDelayHintInput">Delay (Second)</label>
+                      <input
+                        :disabled="!playoutDelayHintCheck"
+                        type="number"
+                        id="playOutDelayHintInput"
+                        class="form-control active"
+                        v-model="playOutDelayHintInput"
+                      >
+                      <label
+                        class="form-label"
+                        for="playOutDelayHintInput"
+                      >Delay (Second)</label>
                     </div>
                   </fieldset>
                 </div>
@@ -350,34 +546,77 @@
                   <h6>HLS Options</h6>
                   <fieldset class="mb-3">
                     <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" value="" id="hlsManageLatencyCheck"
-                        v-model="hlsManageLatencyCheck" />
-                      <label class="form-check-label" for="hlsManageLatencyCheck">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hlsManageLatencyCheck"
+                        v-model="hlsManageLatencyCheck"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="hlsManageLatencyCheck"
+                      >
                         Manage Latency
                       </label>
                     </div>
                     <div class="form-outline ms-4 mb-3">
-                      <input :disabled="!hlsManageLatencyCheck" type="number" id="hlsTargetLatency"
-                        class="form-control active" v-model="hlsTargetLatency">
-                      <label class="form-label" for="hlsTargetLatency">Target latency
+                      <input
+                        :disabled="!hlsManageLatencyCheck"
+                        type="number"
+                        id="hlsTargetLatency"
+                        class="form-control active"
+                        v-model="hlsTargetLatency"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsTargetLatency"
+                      >Target latency
                         (Second)</label>
                     </div>
                     <div class="form-outline ms-4 mb-3">
-                      <input :disabled="!hlsManageLatencyCheck" type="number" id="hlsMaxLatency"
-                        class="form-control active" v-model="hlsMaxLatency">
-                      <label class="form-label" for="hlsMaxLatency">Max latency (Second)</label>
+                      <input
+                        :disabled="!hlsManageLatencyCheck"
+                        type="number"
+                        id="hlsMaxLatency"
+                        class="form-control active"
+                        v-model="hlsMaxLatency"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsMaxLatency"
+                      >Max latency (Second)</label>
                     </div>
                     <div class="form-outline ms-4">
-                      <input :disabled="!hlsManageLatencyCheck" type="number" id="hlsLiveSyncCatchupRate"
-                        class="form-control active" min="1" max="2" step="0.1" v-model="hlsLiveSyncCatchupRate">
-                      <label class="form-label" for="hlsLiveSyncCatchupRate">Sync catch up rate
+                      <input
+                        :disabled="!hlsManageLatencyCheck"
+                        type="number"
+                        id="hlsLiveSyncCatchupRate"
+                        class="form-control active"
+                        min="1"
+                        max="2"
+                        step="0.1"
+                        v-model="hlsLiveSyncCatchupRate"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsLiveSyncCatchupRate"
+                      >Sync catch up rate
                         (min:1, max:2)</label>
                     </div>
                   </fieldset>
                   <fieldset>
                     <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="enableDrmCheck" v-model="hlsEnableDrmCheck" />
-                      <label class="form-check-label" for="enableDrmCheck">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="enableDrmCheck"
+                        v-model="hlsEnableDrmCheck"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="enableDrmCheck"
+                      >
                         Enable DRM
                       </label>
                     </div>
@@ -385,36 +624,76 @@
                       <strong>FairPlay</strong>
                     </div>
                     <div class="form-outline ms-4 mb-3">
-                      <input :disabled="!hlsEnableDrmCheck" type="text" id="hlsFairPlayLicenseUrlInput"
-                        class="form-control active" v-model="hlsFairPlayLicenseUrl">
-                      <label class="form-label" for="hlsFairPlayLicenseUrlInput">License URL</label>
+                      <input
+                        :disabled="!hlsEnableDrmCheck"
+                        type="text"
+                        id="hlsFairPlayLicenseUrlInput"
+                        class="form-control active"
+                        v-model="hlsFairPlayLicenseUrl"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsFairPlayLicenseUrlInput"
+                      >License URL</label>
                     </div>
                     <div class="form-outline ms-4 mb-3">
-                      <input :disabled="!hlsEnableDrmCheck" type="text" id="hlsFairPlayServerCertificateUrlInput"
-                        class="form-control active" v-model="hlsFairPlayServerCertificateUrl">
-                      <label class="form-label" for="hlsFairPlayServerCertificateUrlInput">Server Certificate
+                      <input
+                        :disabled="!hlsEnableDrmCheck"
+                        type="text"
+                        id="hlsFairPlayServerCertificateUrlInput"
+                        class="form-control active"
+                        v-model="hlsFairPlayServerCertificateUrl"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsFairPlayServerCertificateUrlInput"
+                      >Server Certificate
                         URL</label>
                     </div>
                     <div class="mb-3">
                       <strong>Widevine</strong>
                     </div>
                     <div class="form-outline ms-4 mb-2">
-                      <input :disabled="!hlsEnableDrmCheck" type="text" id="hlsWidevineLicenseUrlInput"
-                        class="form-control active" v-model="hlsWidevineLicenseUrl">
-                      <label class="form-label" for="hlsWidevineLicenseUrlInput">License URL</label>
+                      <input
+                        :disabled="!hlsEnableDrmCheck"
+                        type="text"
+                        id="hlsWidevineLicenseUrlInput"
+                        class="form-control active"
+                        v-model="hlsWidevineLicenseUrl"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsWidevineLicenseUrlInput"
+                      >License URL</label>
                     </div>
                     <div class="mb-3">
                       <strong>Custom Header</strong>
                     </div>
                     <div class="form-outline ms-4 mb-3">
-                      <input :disabled="!hlsEnableDrmCheck" type="text" id="hlsCustomHeaderKeyInput"
-                        class="form-control active" v-model="hlsCustomHeaderKey">
-                      <label class="form-label" for="hlsCustomHeaderKeyInput">Key</label>
+                      <input
+                        :disabled="!hlsEnableDrmCheck"
+                        type="text"
+                        id="hlsCustomHeaderKeyInput"
+                        class="form-control active"
+                        v-model="hlsCustomHeaderKey"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsCustomHeaderKeyInput"
+                      >Key</label>
                     </div>
                     <div class="form-outline ms-4 mb-3">
-                      <input :disabled="!hlsEnableDrmCheck" type="text" id="hlsCustomHeaderValueInput"
-                        class="form-control active" v-model="hlsCustomHeaderValue">
-                      <label class="form-label" for="hlsCustomHeaderValueInput">Value</label>
+                      <input
+                        :disabled="!hlsEnableDrmCheck"
+                        type="text"
+                        id="hlsCustomHeaderValueInput"
+                        class="form-control active"
+                        v-model="hlsCustomHeaderValue"
+                      >
+                      <label
+                        class="form-label"
+                        for="hlsCustomHeaderValueInput"
+                      >Value</label>
                     </div>
                   </fieldset>
                 </div>
@@ -429,17 +708,34 @@
                   <h6>Reload the player when error occurred</h6>
                   <fieldset>
                     <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" value="" id="autoReload"
-                        v-model="demoOption.autoReload" @change="changeOptions" />
-                      <label class="form-check-label" for="autoReload">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="autoReload"
+                        v-model="demoOption.autoReload"
+                        @change="changeOptions"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="autoReload"
+                      >
                         Enable auto reload
                       </label>
                     </div>
                     <div class="form-outline ms-4">
-                      <input type="text" id="playerReloadInterval" class="form-control"
-                        :class="demoOption.autoReloadInterval ? 'active': ''" v-model="demoOption.autoReloadInterval"
-                        @change="changeOptions">
-                      <label class="form-label" for="playerReloadInterval">
+                      <input
+                        type="text"
+                        id="playerReloadInterval"
+                        class="form-control"
+                        :class="demoOption.autoReloadInterval ? 'active': ''"
+                        v-model="demoOption.autoReloadInterval"
+                        @change="changeOptions"
+                      >
+                      <label
+                        class="form-label"
+                        for="playerReloadInterval"
+                      >
                         Reload interval (millisecond)
                       </label>
                     </div>
@@ -449,17 +745,27 @@
             </li>
           </ul>
         </div>
-        <div v-show="createScriptHTML" class="col">
+        <div
+          v-show="createScriptHTML"
+          class="col"
+        >
           <ul class="list-group">
             <li class="list-group-item bg-light">
               <h5 class="mb-0 fs-6">Usage</h5>
             </li>
             <li class="list-group-item position-relative">
-              <div v-html="createScriptHTML" class="my-2 small font-monospace w-100 overflow-auto"
-                style="white-space: pre;">
+              <div
+                v-html="createScriptHTML"
+                class="my-2 small font-monospace w-100 overflow-auto"
+                style="white-space: pre;"
+              >
               </div>
-              <button ref="copyCodeButton" class="btn btn-light text-dark position-absolute px-2 px-md-4"
-                style="top: 0.5rem; right: 1rem" :data-clipboard-text="createScript">
+              <button
+                ref="copyCodeButton"
+                class="btn btn-light text-dark position-absolute px-2 px-md-4"
+                style="top: 0.5rem; right: 1rem"
+                :data-clipboard-text="createScript"
+              >
                 <i class="far fa-copy me-1"></i>COPY
               </button>
             </li>
@@ -474,11 +780,21 @@
 
               <div class="input-group">
                 <div class="form-outline flex-grow-1">
-                  <input type="text" id="permanentLinkInput" readonly class="form-control bg-white"
-                    v-model="permanentLink" />
+                  <input
+                    type="text"
+                    id="permanentLinkInput"
+                    readonly
+                    class="form-control bg-white"
+                    v-model="permanentLink"
+                  />
                 </div>
-                <button id="exportButton" ref="exportButton" data-clipboard-target="#permanentLinkInput"
-                  class="btn btn-primary px-2 px-md-4" type="button">
+                <button
+                  id="exportButton"
+                  ref="exportButton"
+                  data-clipboard-target="#permanentLinkInput"
+                  class="btn btn-primary px-2 px-md-4"
+                  type="button"
+                >
                   <i class="far fa-copy me-1"></i>COPY
                 </button>
               </div>
@@ -488,14 +804,25 @@
         </div>
       </div>
     </div>
+
+    <div class="text-center">
+      <small class="ms-auto">
+        Player Demo
+        <span
+          id="ovenLiveKitVersion"
+          class="badge badge-info align-middle ms-1"
+        >2026-02-10-1</span>
+      </small>
+    </div>
+
     <div class="bg-light border-top mt-5">
       <div class="container-lg mt-3">
         <footer class="text-center text-lg-start">
           <section class="">
             <div class="row">
               <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold">
-                  AirenSoft
+                <h6 class="mb-4 font-weight-bold">
+                  OvenMedia Labs
                 </h6>
                 <p class="lead">
                   Media Technology Expert Group
@@ -511,16 +838,32 @@
               <div class="col-md-5 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">OPEN SOURCE PROJECTS</h6>
                 <p>
-                  <a class="" target="_blank" href="https://github.com/AirenSoft/OvenMediaEngine">OvenMediaEngine</a>
+                  <a
+                    class=""
+                    target="_blank"
+                    href="https://github.com/OvenMediaLabs/OvenMediaEngine"
+                  >OvenMediaEngine</a>
                 </p>
                 <p>
-                  <a class="" target="_blank" href="https://github.com/AirenSoft/OvenPlayer">OvenPlayer</a>
+                  <a
+                    class=""
+                    target="_blank"
+                    href="https://github.com/OvenMediaLabs/OvenPlayer"
+                  >OvenPlayer</a>
                 </p>
                 <p>
-                  <a class="" target="_blank" href="https://github.com/AirenSoft/OvenLiveKit-Web">OvenLiveKit-Web</a>
+                  <a
+                    class=""
+                    target="_blank"
+                    href="https://github.com/OvenMediaLabs/OvenLiveKit-Web"
+                  >OvenLiveKit-Web</a>
                 </p>
                 <p>
-                  <a class="" target="_blank" href="https://github.com/AirenSoft/OvenSpace">OvenSpace</a>
+                  <a
+                    class=""
+                    target="_blank"
+                    href="https://github.com/OvenMediaLabs/OvenSpace"
+                  >OvenSpace</a>
                 </p>
               </div>
 
@@ -530,7 +873,7 @@
                 <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                 <p><i class="fas fa-home mr-3"></i> #1203, Twenty First Valley, 157, Yangpyeong-ro,
                   Yeongdeungpo-gu, Seoul, 07207 Republic of Korea</p>
-                <p><i class="fas fa-envelope mr-3"></i> contact@airensoft.com</p>
+                <p><i class="fas fa-envelope mr-3"></i> contact@ovenmedialabs.com</p>
                 <p><i class="fas fa-phone mr-3"></i> +82-2-6378-5227</p>
               </div>
             </div>
@@ -544,15 +887,23 @@
               <div class="col-md-7 col-lg-8 text-center text-md-start">
                 <div class="p-3">
                   © Copyright
-                  <a class="" href="https://www.airensoft.com">AirenSoft</a>
-                  Co., Ltd. All rights reserved.
+                  <a
+                    class=""
+                    href="https://airensoft.com"
+                  >OvenMedia Labs</a>
+                  Inc. All rights reserved.
                 </div>
               </div>
 
               <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
                 <!-- linked in -->
-                <a class="btn btn-floating m-1" class="" role="button" target="_blank"
-                  href="https://www.linkedin.com/company/airensoft"><i class="fab fa-linkedin-in"></i></a>
+                <a
+                  class="btn btn-floating m-1"
+                  class=""
+                  role="button"
+                  target="_blank"
+                  href="https://www.linkedin.com/company/airensoft"
+                ><i class="fab fa-linkedin-in"></i></a>
               </div>
             </div>
           </section>
@@ -561,7 +912,10 @@
     </div>
   </div>
 
-  <script id="source-item" type="text/template">
+  <script
+    id="source-item"
+    type="text/template"
+  >
     <li class="list-group-item">
         <div class="source-item">
             <div class="source-header">
@@ -589,7 +943,10 @@
 </script>
 
   <!-- MDB -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.js"
+  ></script>
 
   <script>
 
@@ -661,6 +1018,7 @@
       data: function () {
         return {
           reloadTimer: null,
+          statTimer: null,
           player: null,
           source: null,
           loadButtonMsg: 'LOAD PLAYER',
@@ -672,7 +1030,8 @@
           permanentLink: location.href,
           createScript: null,
           createScriptHTML: null,
-          playerVersion: null
+          playerVersion: null,
+          hlsVersion: null
         }
       },
       methods: {
@@ -750,6 +1109,7 @@
           this.player = OvenPlayer.create('player', playerOption);
 
           this.playerVersion = this.player.getVersion();
+          this.hlsVersion = Hls.version;
 
           this.player.on('ready', function () {
             vm.loadButtonMsg = 'UNLOAD PLAYER';
@@ -759,6 +1119,7 @@
           });
 
           this.player.on('hlsPrepared', function (hls) {
+
             hls.on(Hls.Events.FRAG_PARSING_METADATA, function (data, meta) {
               console.log(data, meta);
               if (meta && meta.samples) {
@@ -772,14 +1133,49 @@
 
           this.player.on('metaData', function (metadata) {
 
-            console.log('MetaData', metadata);
+            // console.log('MetaData', metadata);
 
             if (metadata.type === 'sei' && metadata.registered) {
+              console.log('MetaData', metadata);
               // Parse BASE64 encoded JSON data
               const base64String = toAsciiString(metadata.userdata);
               console.log(base64String);
             }
           });
+
+          if (this.statTimer) {
+            clearInterval(this.statTimer);
+            this.statTimer = null;
+          }
+
+          const p = this.player
+
+          // this.statTimer = setInterval(function () {
+
+          //   const hlsLocal = p.getMseInstance();
+
+          //   if (!hlsLocal) {
+          //     return;
+          //   }
+
+          //   const ovenPlayerData = {
+          //     'Latency': hlsLocal.latency,
+          //     'Target Latency': hlsLocal.targetLatency,
+          //     'Sync Position': hlsLocal.liveSyncPosition,
+          //     'Current Time': p.getPosition(),
+          //     'Gap': hlsLocal.liveSyncPosition - p.getPosition()
+          //   };
+
+          //   const tableData = {
+          //     'Latency': { 'OvenPlayer': ovenPlayerData['Latency'] },
+          //     'Target Latency': { 'OvenPlayer': ovenPlayerData['Target Latency'] },
+          //     'Sync Position': { 'OvenPlayer': ovenPlayerData['Sync Position'] },
+          //     'Current Time': { 'OvenPlayer': ovenPlayerData['Current Time'] },
+          //     'Gap': { 'OvenPlayer': ovenPlayerData['Gap'] }
+          //   };
+
+          //   console.table(tableData);
+          // }, 2000);
 
           if (this.demoOption.autoReload && this.demoOption.autoReloadInterval > 0) {
 
@@ -801,6 +1197,11 @@
           }
         },
         unLoadPlayer: function (optionChanged) {
+
+          if (this.statTimer) {
+            clearInterval(this.statTimer);
+            this.statTimer = null;
+          }
 
           if (this.reloadTimer) {
             clearInterval(this.reloadTimer);
