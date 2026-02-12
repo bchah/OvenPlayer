@@ -515,6 +515,33 @@ const Api = function (container) {
         return currentProvider.setCurrentAudioTrack(audioTrackIndex);
     };
 
+    that.getSubtitleTracks = () => {
+        if (!currentProvider) {
+            return null;
+        }
+
+        OvenPlayerConsole.log("API : getSubtitleTracks() ", currentProvider.getSubtitleTracks());
+        return currentProvider.getSubtitleTracks();
+    };
+
+    that.getCurrentSubtitleTrack = () => {
+        if (!currentProvider) {
+            return null;
+        }
+
+        OvenPlayerConsole.log("API : getCurrentSubtitleTrack() ", currentProvider.getCurrentSubtitleTrack());
+        return currentProvider.getCurrentSubtitleTrack();
+    };
+
+    that.setCurrentSubtitleTrack = (index) => {
+        if (!currentProvider) {
+            return null;
+        }
+
+        OvenPlayerConsole.log("API : setCurrentSubtitleTrack() ", index);
+        return currentProvider.setCurrentSubtitleTrack(index);
+    };
+
     that.isAutoQuality = () => {
         if (!currentProvider) {
             return null;

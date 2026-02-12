@@ -9,7 +9,7 @@ import {
     CONTENT_LEVEL_CHANGED
 } from "api/constants";
 
-const QualityPanel = function($container, api, data){
+const QualityPanel = function ($container, api, data) {
     const $root = LA$(api.getContainerElement());
     let panelManager = PanelManager();
 
@@ -23,7 +23,7 @@ const QualityPanel = function($container, api, data){
     const onRendered = function($current, template){
 
         //This assistants UI when quality level changes. When you open setting panels.
-        api.on(CONTENT_LEVEL_CHANGED, function(data){
+        api.on(CONTENT_LEVEL_CHANGED, function (data) {
             let newQuality = data.currentQuality;
             if(data.type === "render"){
                 _.forEach( $root.find("#"+template.data.id).find(".op-setting-item").get(), function(panel){
@@ -49,7 +49,7 @@ const QualityPanel = function($container, api, data){
             event.preventDefault();
             let value = LA$(event.currentTarget).attr("op-data-value");
             if(value === "AUTO"){
-                api.setAutoQuality(!api.isAutoQuality());
+                api.setAutoQuality(true);
             }else{
                 api.setCurrentQuality(parseInt(value));
             }

@@ -27,6 +27,7 @@ import ZoomPanelTemplate from 'view/components/controls/settingPanel/mainTemplat
 import SourcePanelTemplate from 'view/components/controls/settingPanel/mainTemplate';
 import QualityPanelTemplate from 'view/components/controls/settingPanel/mainTemplate';
 import AudioTrackPanelTemplate from 'view/components/controls/settingPanel/mainTemplate';
+import SubtitleTrackPanelTemplate from 'view/components/controls/settingPanel/mainTemplate';
 import CaptionPanelTemplate from 'view/components/controls/settingPanel/mainTemplate';
 import TimeDisplayPanelTemplate from 'view/components/controls/settingPanel/mainTemplate';
 import PlaylistPanelTemplate from 'view/components/controls/playlistPanelTemplate';
@@ -57,6 +58,7 @@ const Templates = {
     SourcePanelTemplate,
     QualityPanelTemplate,
     AudioTrackPanelTemplate,
+    SubtitleTrackPanelTemplate,
     CaptionPanelTemplate,
     TimeDisplayPanelTemplate,
     PlaylistPanelTemplate

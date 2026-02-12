@@ -24,11 +24,11 @@ There are several ways to install OvenPlayer. Use the one you are comfortable wi
 
 ### Download from GitHub
 
-You can download it from [OvenPlayer GitHub](https://github.com/AirenSoft/OvenPlayer).
+You can download it from [OvenPlayer GitHub](https://github.com/OvenMediaLabs/OvenPlayer).
 
-If you have access to [OvenPlayer GitHub](https://github.com/AirenSoft/OvenPlayer), you can download the latest version in development by pressing the Clone or Download button and clicking Download ZIP in the menu that appears.
+If you have access to [OvenPlayer GitHub](https://github.com/OvenMediaLabs/OvenPlayer), you can download the latest version in development by pressing the Clone or Download button and clicking Download ZIP in the menu that appears.
 
-> You can also download specific version of OvenPlayer by from [OvenPlayer GitHub Release](https://github.com/AirenSoft/OvenPlayer/releases).
+> You can also download specific version of OvenPlayer by from [OvenPlayer GitHub Release](https://github.com/OvenMediaLabs/OvenPlayer/releases).
 
 When you download and decompress it, you will see:
 
@@ -96,7 +96,7 @@ $ npm install ovenplayer-react
 
 ## Quick Start
 
-Below is a list of simple OvenPlayer initialization methods for each situation. For detailed options when initializing the OvenPlayer, please refer to the [Initialization](https://airensoft.gitbook.io/ovenplayer/initialization) chapter.
+Below is a list of simple OvenPlayer initialization methods for each situation. For detailed options when initializing the OvenPlayer, please refer to the [Initialization](https://docs.ovenplayer.com/initialization) chapter.
 
 ### Basic Concept
 
@@ -251,7 +251,7 @@ If you need direct access to the internal OvenPlayer instance or want to re-crea
 
 ### Initialize for OME
 
-To play Sub-Second Latency Stream of OvenMediaEngine, set the source `type` to `webrtc` and set the `file` to the WebRTC Signaling URL with OvenMediaEngine. An explanation of the WebRTC Signaling URL can be found [here](https://airensoft.gitbook.io/ovenmediaengine/getting-started#playback).
+To play Sub-Second Latency Stream of OvenMediaEngine, set the source `type` to `webrtc` and set the `file` to the WebRTC Signaling URL with OvenMediaEngine. An explanation of the WebRTC Signaling URL can be found [here](https://docs.ovenmediaengine.com/getting-started#playback).
 
 ```markup
 <!DOCTYPE html>
@@ -322,7 +322,7 @@ This is a way to play video files in progressive download mode.
                     label: 'label_for_video',
                     // Set the type to 'mp4', 'webm' or etc
                     type: 'mp4', 
-                    file: 'https://github.com/AirenSoft/OvenPlayer/raw/master/docs/assets/OCP_480.mp4'
+                    file: 'https://github.com/OvenMediaLabs/OvenPlayer/raw/master/docs/assets/OCP_480.mp4'
                 }
             ]
         });
@@ -464,7 +464,7 @@ You need to set the `IMA` first, and then `ovenplayer.js`, as shown below:
                     label: 'label_for_video',
                     // Set the type to 'mp4', 'webm' or etc
                     type: 'mp4',
-                    file: 'https://github.com/AirenSoft/OvenPlayer/raw/master/docs/assets/OCP_480.mp4'
+                    file: 'https://github.com/OvenMediaLabs/OvenPlayer/raw/master/docs/assets/OCP_480.mp4'
                 }
             ],
             // Set the AD tag URL
@@ -478,8 +478,8 @@ You need to set the `IMA` first, and then `ovenplayer.js`, as shown below:
 
 ## How to Contribute
 
-Please read our [Guidelines](https://github.com/AirenSoft/OvenPlayer/blob/0.9/CONTRIBUTING.md) and [Rules](https://github.com/AirenSoft/OvenPlayer/blob/0.9/CODE\_OF\_CONDUCT.md).
+Please read our [Guidelines](https://github.com/OvenMediaLabs/OvenPlayer/blob/0.9/CONTRIBUTING.md) and [Rules](https://github.com/OvenMediaLabs/OvenPlayer/blob/0.9/CODE\_OF\_CONDUCT.md).
 
 ## License
 
-OvenPlayer is under the [MIT license](https://github.com/AirenSoft/OvenPlayer/blob/0.9/LICENSE).
+OvenPlayer is under the [MIT license](https://github.com/OvenMediaLabs/OvenPlayer/blob/0.9/LICENSE).

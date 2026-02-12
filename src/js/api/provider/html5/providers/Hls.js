@@ -13,7 +13,10 @@ import {
     PLAYER_UNKNWON_NETWORK_ERROR,
     PLAYER_BAD_REQUEST_ERROR,
     PLAYER_AUTH_FAILED_ERROR,
-    PLAYER_NOT_ACCEPTABLE_ERROR, STATE_PLAYING, CONTENT_LEVEL_CHANGED, AUDIO_TRACK_CHANGED
+    PLAYER_NOT_ACCEPTABLE_ERROR,
+    CONTENT_LEVEL_CHANGED,
+    AUDIO_TRACK_CHANGED,
+    SUBTITLE_TRACK_CHANGED
 } from "api/constants";
 
 import sizeHumanizer from "utils/sizeHumanizer";
@@ -81,7 +84,9 @@ const HlsProvider = function (element, playerConfig, adTagUrl) {
             audioTracks: [],
             currentSource: -1,
             sources: [],
-            adTagUrl: adTagUrl
+            adTagUrl: adTagUrl,
+            subtitleTracks: [],
+            currentSubtitleTrack: -1
         };
 
         that = Provider(spec, playerConfig, function (source, lastPlayPosition) {
@@ -111,17 +116,30 @@ const HlsProvider = function (element, playerConfig, adTagUrl) {
 
                 spec.currentQuality = hls.firstLevel;
 
-                for (let i = 0; i < hls.audioTracks.length; i++) {
+                if (hls.audioTracks && hls.audioTracks.length > 0) {
+                    for (let i = 0; i < hls.audioTracks.length; i++) {
 
-                    let audioTrack = hls.audioTracks[i];
+                        let audioTrack = hls.audioTracks[i];
 
-                    spec.audioTracks.push({
-                        index: audioTrack.id,
-                        label: audioTrack.name
-                    });
+                        spec.audioTracks.push({
+                            index: audioTrack.id,
+                            label: audioTrack.name
+                        });
 
-                    if (audioTrack.default === true) {
-                        spec.currentAudioTrack = audioTrack.id;
+                        if (audioTrack.default === true) {
+                            spec.currentAudioTrack = audioTrack.id;
+                        }
+                    }
+                }
+
+                if (hls.subtitleTracks && hls.subtitleTracks.length > 0) {
+                    for (let i = 0; i < hls.subtitleTracks.length; i++) {
+                        let subtitle = hls.subtitleTracks[i];
+                        spec.subtitleTracks.push({
+                            index: subtitle.id,
+                            label: !!subtitle.name ? subtitle.name :
+                                !!subtitle.lang ? subtitle.lang : subtitle.id
+                        });
                     }
                 }
             });
@@ -148,7 +166,6 @@ const HlsProvider = function (element, playerConfig, adTagUrl) {
             hls.on(Hls.Events.LEVEL_SWITCHED, function (event, data) {
 
                 spec.currentQuality = data.level;
-
                 that.trigger(CONTENT_LEVEL_CHANGED, {
                     isAuto: hls.autoLevelEnabled,
                     currentQuality: spec.currentQuality,
@@ -164,11 +181,17 @@ const HlsProvider = function (element, playerConfig, adTagUrl) {
                 });
             });
 
+            hls.on(Hls.Events.SUBTITLE_TRACK_SWITCH, function (event, data) {
+                spec.currentSubtitleTrack = data.id;
+                that.trigger(SUBTITLE_TRACK_CHANGED, {
+                    currentSubtitleTrack: spec.currentSubtitleTrack
+                });
+            });
+
             hls.on(Hls.Events.LEVEL_UPDATED, function (event, data) {
                 if (data && data.details) {
                     spec.dvrWindow = data.details.totalduration;
                 }
-
             });
 
             hls.on(Hls.Events.ERROR, function (event, data) {
@@ -248,8 +271,6 @@ const HlsProvider = function (element, playerConfig, adTagUrl) {
         that.setAutoQuality = (isAuto) => {
             if (isAuto) {
                 hls.currentLevel = -1;
-            } else {
-                hls.currentLevel = hls.currentLevel;
             }
         };
 
@@ -258,6 +279,13 @@ const HlsProvider = function (element, playerConfig, adTagUrl) {
             spec.currentAudioTrack = audioTrackIndex;
 
             return spec.currentAudioTrack;
+        };
+
+        that.setCurrentSubtitleTrack = (subtitleTrackIndex) => {
+            hls.subtitleTrack = subtitleTrackIndex;
+            spec.currentSubtitleTrack = subtitleTrackIndex;
+
+            return spec.currentSubtitleTrack;
         };
 
         that.getDuration = () => {

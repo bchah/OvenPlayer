@@ -39,7 +39,9 @@ const Html5 = function (element, playerConfig, adTagUrl) {
     audioTracks: [],
     currentSource: -1,
     sources: [],
-    adTagUrl: adTagUrl
+    adTagUrl: adTagUrl,
+    subtitleTracks: [],
+    currentSubtitleTrack: -1
   };
 
   let that = Provider(spec, playerConfig, null);

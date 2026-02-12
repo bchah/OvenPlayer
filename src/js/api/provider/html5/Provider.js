@@ -10,7 +10,7 @@ import {
     WARN_MSG_MUTEDPLAY,
     UI_ICONS, PLAYER_WARNING,
     STATE_IDLE, STATE_PLAYING, STATE_PAUSED, STATE_COMPLETE, STATE_ERROR,
-    PLAYER_STATE, PLAYER_COMPLETE, PLAYER_PAUSE, PLAYER_PLAY, PLAYER_ZOOM_CAHNGED, STATE_AD_PLAYING, STATE_AD_PAUSED,
+    PLAYER_STATE, PLAYER_COMPLETE, PLAYER_PAUSE, PLAYER_PLAY, PLAYER_ZOOM_CHANGED, STATE_AD_PLAYING, STATE_AD_PAUSED,
     CONTENT_META, CONTENT_TIME, CONTENT_CAPTION_CUE_CHANGED, CONTENT_SOURCE_CHANGED,
     AD_CLIENT_GOOGLEIMA, AD_CLIENT_VAST,
     PLAYBACK_RATE_CHANGED, CONTENT_MUTE, PROVIDER_HTML5, PROVIDER_WEBRTC, PROVIDER_DASH, PROVIDER_HLS
@@ -334,6 +334,13 @@ const Provider = function (spec, playerConfig, onExtendedLoad) {
                         OvenPlayerConsole.log("Provider : video play error", error.message);
 
                         isPlayingProcessing = false;
+
+                        // Auto mute and retry play if autoMuteRetryOnNotAllowed config is enabled
+                        if (error.name === 'NotAllowedError' && playerConfig.getConfig().autoMuteRetryOnNotAllowed) {
+                            that.setMute(true);
+                            that.play(true);
+                        }
+
                         /*
                         if(!mutedPlay){
                             that.setMute(true);
@@ -386,7 +393,7 @@ const Provider = function (spec, playerConfig, onExtendedLoad) {
         return spec.zoomFactor;
     };
     that.setZoomFactor = (zoomFactor) => {
-        that.trigger(PLAYER_ZOOM_CAHNGED, { zoomFactor: zoomFactor });
+        that.trigger(PLAYER_ZOOM_CHANGED, { zoomFactor: zoomFactor });
         return spec.zoomFactor = zoomFactor;
     };
     that.getSources = () => {
@@ -471,6 +478,24 @@ const Provider = function (spec, playerConfig, onExtendedLoad) {
     };
 
     that.setCurrentAudioTrack = (audioTrackIndex) => {
+        //Do nothing
+    };
+
+    that.getSubtitleTracks = () => {
+        if (!elVideo) {
+            return [];
+        }
+        return spec.subtitleTracks;
+    };
+
+    that.getCurrentSubtitleTrack = () => {
+        if (!elVideo) {
+            return [];
+        }
+        return spec.currentSubtitleTrack;
+    };
+
+    that.setCurrentSubtitleTrack = (subtitleTrackIndex) => {
         //Do nothing
     };
 

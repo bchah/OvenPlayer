@@ -40,9 +40,11 @@ const Configurator = function (options, provider) {
             doubleTapToSeek: false,
             showZoomSettings: false,
             legacyUI: false,
+            contextItems: [],
             parseStream: {
                 enabled: false
-            }
+            },
+            autoMuteRetryOnNotAllowed: false,
         };
         const serialize = function (val) {
             if (val === undefined) {

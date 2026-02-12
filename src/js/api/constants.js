@@ -41,6 +41,7 @@ export const DASH_PREPARED = "dashPrepared";
 export const DASH_DESTROYED = "dashDestroyed";
 export const PEER_CONNECTION_PREPARED = "peerConnectionPrepared";
 export const PEER_CONNECTION_DESTROYED = "peerConnectionDestroyed";
+export const CONTEXT_ITEM_CLICKED = 'contextItemClicked';
 
 
 
@@ -58,7 +59,7 @@ export const PLAYER_LOADING = "loading";
 export const PLAYER_FULLSCREEN_REQUEST = "fullscreenRequested";
 export const PLAYER_FULLSCREEN_CHANGED = "fullscreenChanged";
 export const PLAYER_WARNING = "warning";
-export const PLAYER_ZOOM_CAHNGED = "zoomChanged";
+export const PLAYER_ZOOM_CHANGED = "zoomChanged";
 
 export const AD_CHANGED = "adChanged";
 export const AD_TIME = "adTime";
@@ -79,6 +80,7 @@ export const CONTENT_CAPTION_CHANGED = "captionChanged";
 export const CONTENT_TIME_MODE_CHANGED = "timeDisplayModeChanged";
 export const OME_P2P_MODE = "p2pMode";
 export const AUDIO_TRACK_CHANGED = "audioTrackChanged";
+export const SUBTITLE_TRACK_CHANGED = "subtitleTrackChanged";
 
 
 export const AD_CLIENT_GOOGLEIMA = "googleima";
@@ -147,7 +149,8 @@ export const SYSTEM_TEXT = [
         "audioTrack": "Audio",
         "caption": "Caption",
         "display": "Display",
-        "zoom": "Zoom"
+        "zoom": "Zoom",
+        "subtitleTrack": "Subtitle"
       }
     },
     "api": {
@@ -310,7 +313,8 @@ export const SYSTEM_TEXT = [
         "audioTrack": "오디오",
         "caption": "자막",
         "display": "표시",
-        "zoom": "Zoom"
+        "zoom": "줌",
+        "subtitleTrack": "자막"
       }
     },
     "api": {
@@ -473,7 +477,8 @@ export const SYSTEM_TEXT = [
         "audioTrack": "Audio",
         "caption": "Podtytuł",
         "display": "Wyświetlacz",
-        "zoom": "Zoom"
+        "zoom": "Zbliżenie",
+        "subtitleTrack": "Napisy"
       }
     },
     "api": {
